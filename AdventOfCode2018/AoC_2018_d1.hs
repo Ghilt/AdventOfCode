@@ -1,12 +1,10 @@
-import Data.Char
 
--- Doing Haskell again for the first time in a long while. The multiple 'newNumber + (head accumulator)' should definately be written 
--- in a more clever way, maybe 'where'/'let' keywords but it's late and I can't recall the syntax
 accumulateUntilFirst :: (Bool, [Int]) -> Int -> (Bool, [Int])
 accumulateUntilFirst inValue@(finished, accumulator) newNumber
     | finished = inValue
-    | elem (newNumber + (head accumulator)) accumulator = (True, [(newNumber + (head accumulator))]) 
-    | otherwise = (False, (newNumber + (head accumulator)) : accumulator)            
+    | elem newValue accumulator = (True, [newValue]) 
+    | otherwise = (False, newValue : accumulator)
+    where newValue = newNumber + (head accumulator)    
 
 recurrToFindDuplicateFrequency :: (Bool, [Int]) -> [Int] -> Int
 recurrToFindDuplicateFrequency inValue@(finished, accumulator) frequencies
@@ -24,4 +22,4 @@ main = do
     let findFirst = recurrToFindDuplicateFrequency (False, [0]) numbers
     putStrLn $ "Print first number in a roundabout educationary way " ++ show (read (head linesOfFile) :: Int)
     putStrLn $ "Sum all: " ++ show sumIt
-    putStrLn $ "Find the first duplicate frequency: " ++ show findFirst
+    putStrLn $ "Find the first duplicate frequency: " ++ show findFirst -- Run time: ~90 sec(too long, something is badly done I think), result: 464 
