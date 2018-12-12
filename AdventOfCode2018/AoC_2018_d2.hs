@@ -1,14 +1,14 @@
 import Data.Char
 
 hasCountOf :: Int -> [Char] -> Bool
-hasCountOf amount = findAmount False
-    where findAmount hasFound [] = hasFound
-          findAmount hasFound (x:xs)
-            | amountOfLetter > threshold = findAmount False $ filter (/=x) xs
-            | amountOfLetter == threshold = True
-            | otherwise = findAmount False xs
-                where amountOfLetter = length (filter (==x) xs) 
-          threshold = amount - 1
+hasCountOf amount [] = False
+hasCountOf amount (x:xs)
+    | amountOfLetter > threshold = findAmount $ filter (/=x) xs
+    | amountOfLetter == threshold = True
+    | otherwise = findAmount xs
+        where amountOfLetter = length (filter (==x) xs) 
+              threshold = amount - 1
+              findAmount = hasCountOf amount
 
 main = do  
     putStrLn "Start..."  
