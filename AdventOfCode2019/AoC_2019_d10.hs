@@ -1,5 +1,6 @@
 transformToListOfCoordinates :: [String] -> [(Int, Int)]
-transformToListOfCoordinates lines = map toTuple $ filter filterAsteroids $ concat flat
+transformToListOfCoordinates lines =
+  map toTuple $ filter filterAsteroids $ concat flat
   where
     iLines = zip [0 ..] $ map (zip [0 ..]) lines
     flat = map integrateIndex iLines
@@ -19,9 +20,9 @@ toVisionLine :: (Int, Int) -> (Int, Int)
 toVisionLine (0, 0) = (0, 0)
 toVisionLine (0, y) = (0, y `div` abs y)
 toVisionLine (x, 0) = (x `div` abs x, 0)
-toVisionLine (x, y) =
-  let g = gcd x y
-   in (x `div` g, y `div` g)
+toVisionLine (x, y) = (x `div` d, y `div` d)
+  where
+    d = gcd x y
 
 -- Copied from https://www.rosettacode.org/wiki/Remove_duplicate_elements#Haskell couldn't get a stdlib function to do what I wanted
 unique :: Eq a => [a] -> [a]
@@ -35,5 +36,5 @@ main = do
   let asteroids = transformToListOfCoordinates lns
   let temp = map (calculateVisibleAsteroids asteroids) asteroids
   let listOfLOS = map length $ map unique temp
-  let maxLOS = maximum listOfLOS
+  let maxLOS = maximum listOfLOS - 1 -- Minus 1 to compensate for it seeing itself
   putStrLn $ "Part 1: " ++ show maxLOS
