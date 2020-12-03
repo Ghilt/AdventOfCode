@@ -1,5 +1,11 @@
 import Data.List.Split
 
+test1 :: String -> Int
+test1 a = 123 
+
+test2 :: Int -> Int -> String
+test2 a b = "fsy5"
+
 xor :: Bool -> Bool -> Bool
 xor a b 
     | a && b = False
@@ -25,7 +31,8 @@ main = do
     let linesOfFile = map (wordsBy (\x-> elem x [' ','-',':'])) $ lines contents
     let resultsD1 = length $ filter (\r -> r) $ map isValidPassword linesOfFile
     let resultsD2 = length $ filter (\r -> r) $ map isTobogganPassword linesOfFile
+    let resultsD3 = test1 . test2 $ 4563
 
     putStrLn $ "Result - Part 1: " ++ show resultsD1
-    putStrLn $ "Result - Part 22: " ++ show resultsD2
+    putStrLn $ "Result - Part 2: " ++ show resultsD3
 
