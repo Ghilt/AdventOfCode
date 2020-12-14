@@ -2,3 +2,6 @@
 *.iml
 *.xml
 .idea
+out
+META-INF
+*.class
