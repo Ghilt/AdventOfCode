@@ -20,8 +20,7 @@ fun main() {
     println(memory.values.reduce { a, b -> a.plus(b) })
 
     val memory2 = executeBlocks(instructions, ::executePt2)
-    println(memory2.values.reduce { a, b -> a.plus(b) })
-
+    println(memory2)
 }
 
 fun executeBlocks(instructions: List<MaskedBlock>, executor: (Memory, String, Instruction) -> Unit) : Memory {
