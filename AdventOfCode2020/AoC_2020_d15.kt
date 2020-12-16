@@ -1,4 +1,3 @@
-@ExperimentalStdlibApi
 fun main() {
     val sequence = mutableListOf(1, 0, 15, 2, 10, 13)
 
