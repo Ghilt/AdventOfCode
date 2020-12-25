@@ -21,7 +21,6 @@ fun main() {
 }
 
 fun performMove(state: List<Int>, currentCup: Int): Pair<List<Int>, Int> {
-
     val nextIndex = 1 + state.indexOf(currentCup)
     val removed = List(3) { state.atCyclicIndex(nextIndex + it) }
     val newCurrent = state.atCyclicIndex(nextIndex + 3)
@@ -29,7 +28,6 @@ fun performMove(state: List<Int>, currentCup: Int): Pair<List<Int>, Int> {
     do { if (dc == 1) dc = state.maxOf { it } else dc-- } while (dc in removed)
 
     return state.filter { it !in removed }.shift(dc).plus(removed) to newCurrent
-
 }
 
 // Part 2 opt with mutable list. Still took hours to run, but it's christmas so...
@@ -52,7 +50,6 @@ fun performMoveMutable(state: MutableList<Int>, currentIndex: Int): Int {
     state.add(di, thd)
     state.add(di, snd)
     state.add(di, fst)
-
     return if (nextIndex < di) nextIndex else nextIndex + 3
 }
 
