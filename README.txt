@@ -2,6 +2,12 @@ Command line run kotlin:
 
 kotlinc AoC_2019_d2.kt -include-runtime -d aoc.jar | java -jar aoc.jar
 
+kotlin commandline setup: 
+
+You need to configure your environment variables, JAVA_HOME and PATH. (take java jdk download from intellij and point to that)
+Then you need to download the kotlin compiler and add that to PATH as well
+https://kotlinlang.org/docs/command-line.html
+
 Commandline run haskell:
 
 runhaskell .\AdventOfCode2020\AoC_2020_d9.hs
