@@ -2,9 +2,6 @@ import Data.List
 import Numeric
 import Data.Function
 
-fDiv :: Int -> Int -> Float
-fDiv = (/) `on` fromIntegral
-
 countChar :: Char -> String -> Int
 countChar c str = length $ filter (== c) str
 
