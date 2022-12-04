@@ -14,7 +14,7 @@ main = do
     let max3Cal_PointFreeStyle0 = sum $ take 3 $ reverse $ sort $ map sum caloriesAsInt
     let max3Cal_PointFreeStyle1 = sum ( take 3 ( reverse ( sort (map sum caloriesAsInt))))
     let max3Cal_PointFreeStyle2 x = sum ( take 3 ( reverse ( sort (map sum x))))
-    let max3Cal_PointFreeStyle3 = sum . (take 3) . reverse . sort . (map sum)
+    let max3Cal_PointFreeStyle3 = sum . take 3 . reverse . sort . (map sum)
     -- That's just amazing that I managed to rewrite something in point free style in just 15 minutes
     -- So the pointfree solution composes a function with {in my brain} has sum as the inner layer and outside the sum there is a little gnome only taking 3 elements of the inputted list before passing it on
     -- and outside the take 3 gnome there sits a reverse gnome, he is just reversing the list. 

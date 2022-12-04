@@ -41,7 +41,7 @@ main = do
     putStrLn "Start..."   
     contents <- readFile "input/AoC_2022_d2.txt"
 
-    let calculateResults scorer = (foldr scorer 0) . (map toPair) . lines 
+    let calculateResults scorer = foldr scorer 0 . map toPair . lines 
 
     putStrLn $ "Result - Part 1: " ++ show (calculateResults (scoreIt moveValue rps) contents)
     putStrLn $ "Result - Part 1: " ++ show (calculateResults (scoreIt moveValue_2 reverseRps) contents)
