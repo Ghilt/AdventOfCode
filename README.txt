@@ -29,3 +29,5 @@ cabal install --lib Unique
 cabal install --lib split
 
 I do not know how to find the name of these packages that cabal will understand. https://hackage.haskell.org/packages/browse
+
+commit message template: Add solution for day x, part y, 2022
